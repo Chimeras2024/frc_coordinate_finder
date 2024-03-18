@@ -1,5 +1,7 @@
 
-$(".hover-container").on("click", function(event) {
+// $(".hover-container").on("click", function(event) {
+// });
+function calcCoords(event) {
     // var x = event.pageX - this.offsetLeft;
     // var y = event.pageY - this.offsetTop;
     var parentOffset = $(this).parent().offset();
@@ -22,7 +24,7 @@ $(".hover-container").on("click", function(event) {
     document.getElementById("Y").value="Y: ".concat(y);
 
     // alert("X Coordinate: " + x + " Y Coordinate: " + y);
-});
+}
 
 $(".hover-container").on("mousemove", function(e) {
     var size = 46; // width of square in pixels (div inches by 0.4625 to get this value)
@@ -37,4 +39,6 @@ $(".hover-container").on("mousemove", function(e) {
     .css("top", relY - (size/2) + "px")
     .css("background-position", (picWidth - relX - (size/2)) + "px " +
       (picHeight - relY - (size/2)) + "px")
+
+    calcCoords(e);
 });
