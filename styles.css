@@ -4,18 +4,34 @@
 }
 
 body {
-  overflow: hidden; /* Hide scrollbars */
+  overflow: auto; /* Hide scrollbars */
   margin: 0px;
-  background: url(https://a2b2.org/sites/all/themes/a2b2_boot/img/stars.gif);
+  background: url("chimeras.jpg");
+  background-size: 150%;
+  background-position-x: -10vw;
+  background-position-y: -70vh;
+
 }
 
+
 .coord-container {
-  width: 100px;
-  margin: auto;
+  position: fixed;
+  top: 1vh;
+
+  height: 3vw;
+  width: 6vw;
 }
 
 .coord {
-  width: 100px;
+  width: 6vw;
+  font-size: 1vw;
+
+  padding: 0px;
+  margin: 0.25vw;
+
+  border-width: 0.3vw;
+  background-color: #00aeef;
+  border-color: #00b157;
 }
 
 .hover-container {
