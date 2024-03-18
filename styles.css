@@ -1,0 +1,10 @@
+.hover-container {
+  position: relative;
+}
+
+.hover-image {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  border: dashed 2px;
+}
