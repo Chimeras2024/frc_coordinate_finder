@@ -1,7 +1,20 @@
+$(".hover-container").on("mousemove", function(e) {
+    //// box around cursor ////
+    var width = 21.5; // width of square in inches
 
-// $(".hover-container").on("click", function(event) {
-// });
-function calcCoords(event) {
+    var size = width / 0.4625;
+    var parentOffset = $(this).parent().offset();
+    //or $(this).offset(); if you really just want the current element's offset
+    var relX = e.pageX - parentOffset.left;
+    var relY = e.pageY - parentOffset.top;
+    var picHeight = $('.hover-image').height();
+    var picWidth = $('.hover-image').height();
+    $('.hover-image')
+    .css("left", relX - (size/2) + "px")
+    .css("top", relY - (size/2) + "px")
+
+    //// coordinates ////
+
     // var x = event.pageX - this.offsetLeft;
     // var y = event.pageY - this.offsetTop;
     var parentOffset = $(this).parent().offset();
@@ -24,21 +37,4 @@ function calcCoords(event) {
     document.getElementById("Y").value="Y: ".concat(y);
 
     // alert("X Coordinate: " + x + " Y Coordinate: " + y);
-}
-
-$(".hover-container").on("mousemove", function(e) {
-    var size = 46; // width of square in pixels (div inches by 0.4625 to get this value)
-    var parentOffset = $(this).parent().offset();
-    //or $(this).offset(); if you really just want the current element's offset
-    var relX = e.pageX - parentOffset.left;
-    var relY = e.pageY - parentOffset.top;
-    var picHeight = $('.hover-image').height();
-    var picWidth = $('.hover-image').height();
-    $('.hover-image')
-    .css("left", relX - (size/2) + "px")
-    .css("top", relY - (size/2) + "px")
-    .css("background-position", (picWidth - relX - (size/2)) + "px " +
-      (picHeight - relY - (size/2)) + "px")
-
-    calcCoords(e);
 });

@@ -1,10 +1,31 @@
+:root {
+/*  This should be in inches (with px suffix)*/
+  --box-width: 21.5px;
+}
+
+body {
+  overflow: hidden; /* Hide scrollbars */
+  margin: 0px;
+  background: url(https://a2b2.org/sites/all/themes/a2b2_boot/img/stars.gif);
+}
+
+.coord-container {
+  width: 100px;
+  margin: auto;
+}
+
+.coord {
+  width: 100px;
+}
+
 .hover-container {
   position: relative;
 }
 
 .hover-image {
   position: absolute;
-  width: 46px;
-  height: 46px;
-  border: dashed 2px;
+  width: calc(21.5px / 0.4625);
+  height: calc(21.5px / 0.4625);
+  border: dashed 2px #00b157;
+  border-radius: 15px;
 }
