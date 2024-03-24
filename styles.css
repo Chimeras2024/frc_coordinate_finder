@@ -1,6 +1,6 @@
 :root {
 /*  This should be in inches (with px suffix)*/
-  --box-width: 21.5px;
+  --box-width: 27.5px;
 }
 
 body {
@@ -40,8 +40,8 @@ body {
 
 .hover-image {
   position: absolute;
-  width: calc(21.5px / 0.4625);
-  height: calc(21.5px / 0.4625);
+  width: calc(27.5px / 0.4625);
+  height: calc(27.5px / 0.4625);
   border: dashed 2px #00b157;
   border-radius: 15px;
 }

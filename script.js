@@ -1,6 +1,6 @@
 $(".hover-container").on("mousemove", function(e) {
     //// box around cursor ////
-    var width = 21.5; // width of square in inches
+    var width = 27.5; // width of square in inches
 
     var size = width / 0.4625;
     var parentOffset = $(this).parent().offset();
