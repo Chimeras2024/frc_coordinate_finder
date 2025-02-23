@@ -87,10 +87,10 @@ $(".hover-container").on("mousemove", function(e) {
 
 
 
-    document.getElementById("X").value="X: ".concat(xInch);
-    document.getElementById("Y").value="Y: ".concat(yInch);
-    document.getElementById("X2").value="X2: ".concat(xUnit);
-    document.getElementById("Y2").value="Y2: ".concat(yUnit);
+    document.getElementById("X").value="Xin: ".concat(xInch);
+    document.getElementById("Y").value="Yin: ".concat(yInch);
+    document.getElementById("X2").value="Xm: ".concat(xUnit);
+    document.getElementById("Y2").value="Ym: ".concat(yUnit);
 
     document.documentElement.style.setProperty('--box-width', robotWidthInch + "px");
     document.documentElement.style.setProperty('--inch2px', in2pxRatio);
