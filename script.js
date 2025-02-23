@@ -6,39 +6,47 @@
 // 2663 / 888 = 2.998
 // 1079 / 360 = 2.997
 
+
+var imageWidthPx = 2663;   
+var imageHeightPx = 1079;
+
+var imageWidthIn = 888;
+var imageHeightIn = 360; 
+
+// Offset from edge of image to y=x=0 on coordinate system
+var xOffsetInch = 99.125;
+var yOffsetInch = 21.5;
+
+// multiplier for inches to desired end units
+var inchToUnits = 0.0254; // CURRENTLY METERS
+
+
+
+
+//// CONVERSION FACTORS ////
+// given unit * (desired unit / given unit)
+
+// multiplier to convert from pixels to inches
+var in2pxRatio = imageWidthPx / imageWidthIn 
+var px2inRatio = imageWidthIn / imageWidthPx
+
+//// OFFSETS ////
+// Offset from edge of image to y=x=0 on coordinate system
+var xZeroOffset = xOffsetInch * in2pxRatio;
+var yZeroOffset = yOffsetInch * in2pxRatio;
+
+// Coordinate system with center at 0,0
+if (false) {
+    xZeroOffset = imageWidthPx / 2;
+    yZeroOffset = imageHeightPx / 2;
+}
+
 $(".hover-container").on("mousemove", function(e) {
-    var imageWidthPx = 2663;   
-    var imageHeightPx = 1079;
-
-    var imageWidthIn = 888;
-    var imageHeightIn = 360; 
-
-    // multiplier for inches to desired end units
-    var inchToUnits = 0.0254; // CURRENTLY METERS
-
-
-    //// CONVERSION FACTORS ////
-
-    // given unit * (desired unit / given unit)
-
-    // multiplier to convert from pixels to inches
-    var in2pxRatio = imageWidthPx / imageWidthIn 
-    var px2inRatio = imageWidthIn / imageWidthPx
-
-    // Offset from edge of image to y=x=0 on coordinate system
-    var xZeroOffset = 99.125 * in2pxRatio;
-    var yZeroOffset = 21.5 * in2pxRatio;
-
-    // Coordinate system with center at 0,0
-    if (false) {
-        xZeroOffset = imageWidthPx / 2;
-        yZeroOffset = imageHeightPx / 2;
-    }
 
     //// BOX AROUND CURSOR ////
     // Find the robot's width in pixels
-    var robotWidth = 27.5; // width of square in inches
-    robotWidth *= in2pxRatio;
+    var robotWidthInch = 27.5; // width of square in inches
+    robotWidth = robotWidthInch * in2pxRatio;
 
     var parentOffset = $(this).parent().offset();
     //or $(this).offset(); if you really just want the current element's offset
@@ -49,9 +57,9 @@ $(".hover-container").on("mousemove", function(e) {
     $('.hover-image')
     .css("left", relX - (robotWidth/2) + "px")
     .css("top", relY - (robotWidth/2) + "px")
-    
 
-    //// COORDINATES ////
+
+    //// CALCULATE COORDINATES ////
 
     // var x = event.pageX - this.offsetLeft;
     // var y = event.pageY - this.offsetTop;
@@ -83,6 +91,10 @@ $(".hover-container").on("mousemove", function(e) {
     document.getElementById("Y").value="Y: ".concat(yInch);
     document.getElementById("X2").value="X2: ".concat(xUnit);
     document.getElementById("Y2").value="Y2: ".concat(yUnit);
+
+    document.documentElement.style.setProperty('--box-width', robotWidthInch + "px");
+    document.documentElement.style.setProperty('--inch2px', in2pxRatio);
+
 
     // alert("X Coordinate: " + x + " Y Coordinate: " + y);
 });

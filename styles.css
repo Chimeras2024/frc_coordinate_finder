@@ -1,7 +1,7 @@
 :root {
 /*  This should be in inches (with px suffix)*/
-  --box-width: 27.5px;
-  --inch2px: 2.998;
+  /*--box-width: 27.5px;
+  --inch2px: 2.998;*/
 }
 
 body {
