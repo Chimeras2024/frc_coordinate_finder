@@ -43,6 +43,7 @@ body {
   position: absolute;
   width: calc(var(--box-width) * var(--inch2px));
   height: calc(var(--box-width) * var(--inch2px));
+  background-color: rgba(255,255,255,0.4);
   border: dashed 4px #00b157;
   border-radius: 15px;
 }
